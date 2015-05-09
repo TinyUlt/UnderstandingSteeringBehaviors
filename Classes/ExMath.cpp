@@ -7,18 +7,13 @@
 //
 
 #include "ExMath.h"
-Vec2 truncate(Vec2 v, float speed)
+Vec2 truncate(Vec2 v, float max)
 {
-    
-    float l = v.length();
-    if (l < speed) {
-        return v;
-    }
-    else
-    {
-        return v.getNormalized() * speed;
-    }
-    //return v1.length() < v2.length() ? v1 : v2;
+    log("%f", v.length());
+    auto i = max / v.length();
+    i = i < 1.0 ? i : 1.0;
+    v.scale(i);
+    return v;
 }
 
 Vec2 normalize(Vec2 v)

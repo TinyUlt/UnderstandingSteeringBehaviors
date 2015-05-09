@@ -52,8 +52,9 @@
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
 		B9CE6F191AFDB1B400B63911 /* TestBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F171AFDB1B400B63911 /* TestBaseLayer.cpp */; };
 		B9CE6F1C1AFDB25700B63911 /* Seek.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F1A1AFDB25700B63911 /* Seek.cpp */; };
-		B9CE6F1F1AFDDA5600B63911 /* FleeAndArrival.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F1D1AFDDA5600B63911 /* FleeAndArrival.cpp */; };
+		B9CE6F1F1AFDDA5600B63911 /* Flee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F1D1AFDDA5600B63911 /* Flee.cpp */; };
 		B9CE6F221AFDE49600B63911 /* ExMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F201AFDE49600B63911 /* ExMath.cpp */; };
+		B9CE6F251AFDE9C800B63911 /* Arrival.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F231AFDE9C800B63911 /* Arrival.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -112,10 +113,12 @@
 		B9CE6F181AFDB1B400B63911 /* TestBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBaseLayer.h; sourceTree = "<group>"; };
 		B9CE6F1A1AFDB25700B63911 /* Seek.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Seek.cpp; sourceTree = "<group>"; };
 		B9CE6F1B1AFDB25700B63911 /* Seek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seek.h; sourceTree = "<group>"; };
-		B9CE6F1D1AFDDA5600B63911 /* FleeAndArrival.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FleeAndArrival.cpp; sourceTree = "<group>"; };
-		B9CE6F1E1AFDDA5600B63911 /* FleeAndArrival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FleeAndArrival.h; sourceTree = "<group>"; };
+		B9CE6F1D1AFDDA5600B63911 /* Flee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flee.cpp; sourceTree = "<group>"; };
+		B9CE6F1E1AFDDA5600B63911 /* Flee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flee.h; sourceTree = "<group>"; };
 		B9CE6F201AFDE49600B63911 /* ExMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExMath.cpp; sourceTree = "<group>"; };
 		B9CE6F211AFDE49600B63911 /* ExMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExMath.h; sourceTree = "<group>"; };
+		B9CE6F231AFDE9C800B63911 /* Arrival.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arrival.cpp; sourceTree = "<group>"; };
+		B9CE6F241AFDE9C800B63911 /* Arrival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrival.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -249,10 +252,12 @@
 				B9CE6F181AFDB1B400B63911 /* TestBaseLayer.h */,
 				B9CE6F1A1AFDB25700B63911 /* Seek.cpp */,
 				B9CE6F1B1AFDB25700B63911 /* Seek.h */,
-				B9CE6F1D1AFDDA5600B63911 /* FleeAndArrival.cpp */,
-				B9CE6F1E1AFDDA5600B63911 /* FleeAndArrival.h */,
+				B9CE6F1D1AFDDA5600B63911 /* Flee.cpp */,
+				B9CE6F1E1AFDDA5600B63911 /* Flee.h */,
 				B9CE6F201AFDE49600B63911 /* ExMath.cpp */,
 				B9CE6F211AFDE49600B63911 /* ExMath.h */,
+				B9CE6F231AFDE9C800B63911 /* Arrival.cpp */,
+				B9CE6F241AFDE9C800B63911 /* Arrival.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -437,9 +442,10 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				B9CE6F221AFDE49600B63911 /* ExMath.cpp in Sources */,
-				B9CE6F1F1AFDDA5600B63911 /* FleeAndArrival.cpp in Sources */,
+				B9CE6F1F1AFDDA5600B63911 /* Flee.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				B9CE6F191AFDB1B400B63911 /* TestBaseLayer.cpp in Sources */,
+				B9CE6F251AFDE9C800B63911 /* Arrival.cpp in Sources */,
 				B9CE6F1C1AFDB25700B63911 /* Seek.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
