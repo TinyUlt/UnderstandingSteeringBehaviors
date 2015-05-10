@@ -77,14 +77,14 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Sprite_character" ActionTag="1826318221" Tag="9" IconVisible="False" LeftMargin="94.3707" RightMargin="816.6293" TopMargin="465.7488" BottomMargin="126.2512" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_character" ActionTag="1826318221" Tag="9" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="455.5000" RightMargin="455.5000" TopMargin="296.0000" BottomMargin="296.0000" ctype="SpriteObjectData">
             <Size X="49.0000" Y="48.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="118.8707" Y="150.2512" />
+            <Position X="480.0000" Y="320.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1238" Y="0.2348" />
-            <PreSize />
+            <PrePosition X="0.5000" Y="0.5000" />
+            <PreSize X="0.0510" Y="0.0750" />
             <FileData Type="Normal" Path="r2.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>

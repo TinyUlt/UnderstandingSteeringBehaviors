@@ -11,6 +11,7 @@
 #include "Seek.h"
 #include "Flee.h"
 #include "Arrival.h"
+#include "Wander.h";
 
 static int sceneIdx = -1;
 #define CL(__className__) [](){ return __className__::create();}
@@ -19,6 +20,8 @@ static std::function<Layer*()> createFunctions[] =
     CL(Seek),
     CL(Flee),
     CL(Arrival),
+    CL(Wander),
+
 };
 #define MAX_LAYER    (sizeof(createFunctions) / sizeof(createFunctions[0]))
 
