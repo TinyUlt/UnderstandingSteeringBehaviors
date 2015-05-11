@@ -13,7 +13,7 @@
 #include "Arrival.h"
 #include "Wander.h"
 #include "Pursuit.h"
-
+#include "Evading.h"
 static int sceneIdx = -1;
 #define CL(__className__) [](){ return __className__::create();}
 static std::function<Layer*()> createFunctions[] =
@@ -23,6 +23,7 @@ static std::function<Layer*()> createFunctions[] =
     CL(Arrival),
     CL(Wander),
     CL(Pursuit),
+    CL(Evading),
 
 };
 #define MAX_LAYER    (sizeof(createFunctions) / sizeof(createFunctions[0]))

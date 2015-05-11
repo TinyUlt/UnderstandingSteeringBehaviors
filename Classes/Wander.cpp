@@ -23,10 +23,10 @@ bool Wander::init()
 }
 void Wander::update(float dt)
 {
-    Sprite_character->setPosition(getSeekPosition(Sprite_character->getPosition()));
+    Sprite_character->setPosition(getSeekPosition(Sprite_character->getPosition(), m_touchPosition, velocity, wanderForce));
 }
 
-Vec2 Wander::getSeekPosition(Vec2 position)
+Vec2 Wander::getSeekPosition(Vec2 characterPosition, Vec2 targetPosition,Vec2& characterVelocity, Vec2& wanderForce)
 {
     static int _timeOffset = 0;
     _timeOffset ++;
@@ -37,11 +37,11 @@ Vec2 Wander::getSeekPosition(Vec2 position)
         float CIRCLE_DISTANCE = 2;//圆的距离
         float CIRCLE_RADIUS = 10;//源的半径
         float ANGLE_CHANGE = M_PI ;//速度的变换范围
-        auto circleCenter = velocity.getNormalized();
+        auto circleCenter = characterVelocity.getNormalized();
         circleCenter.scale(CIRCLE_DISTANCE);//物体到圆的向量
         
         //圆中的单位向量
-        Vec2 displacement = velocity.getNormalized();
+        Vec2 displacement = characterVelocity.getNormalized();
         displacement.scale(CIRCLE_RADIUS);
         
         float wanderAngle = (random(0.0f, 1.0f)* ANGLE_CHANGE) - (ANGLE_CHANGE * .5);//偏移的角度量
@@ -55,10 +55,10 @@ Vec2 Wander::getSeekPosition(Vec2 position)
     
     auto steering = wanderForce;//desired_velocity - velocity;//计算转向速度
     steering = steering / mass;//附加物体质量
-    velocity = truncate(velocity + steering, max_speed) ;//实际速度 = 当前速度+转向速度 ( 保证最大速度 )
-    position = position + velocity;
+    characterVelocity = truncate(characterVelocity + steering, max_speed) ;//实际速度 = 当前速度+转向速度 ( 保证最大速度 )
+    characterPosition = characterPosition + characterVelocity;
     
-    return position;
+    return characterPosition;
 }
 bool Wander::onTouchBegan(Touch* touch, Event* event)
 {
