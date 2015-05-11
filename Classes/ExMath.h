@@ -14,5 +14,5 @@
 USING_NS_CC;
 Vec2 truncate(Vec2 v, float speed);
 Vec2 normalize(Vec2 v);
-void setAngle(Vec2 v, float angle);
+
 #endif /* defined(__UnderstandingSteeringBehaviors_Seek__ExMath__) */

@@ -21,7 +21,3 @@ Vec2 normalize(Vec2 v)
     return v.getNormalized();
 }
 
-void setAngle(Vec2 v, float angle)
-{
-    
-}

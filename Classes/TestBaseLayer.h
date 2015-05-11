@@ -45,6 +45,7 @@ public:
     
     Text*  Text_title;
     Sprite* Sprite_character;
+    Sprite* Sprite_character2;
 };
 
 

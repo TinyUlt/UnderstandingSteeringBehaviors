@@ -88,6 +88,17 @@
             <FileData Type="Normal" Path="r2.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_character2" ActionTag="1331160200" Tag="10" IconVisible="False" LeftMargin="-72.1227" RightMargin="983.1227" TopMargin="642.7898" BottomMargin="-49.7898" ctype="SpriteObjectData">
+            <Size X="49.0000" Y="47.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-47.6227" Y="-26.2898" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="-0.0496" Y="-0.0411" />
+            <PreSize />
+            <FileData Type="Normal" Path="r1.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

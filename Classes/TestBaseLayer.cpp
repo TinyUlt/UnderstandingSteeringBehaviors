@@ -11,7 +11,8 @@
 #include "Seek.h"
 #include "Flee.h"
 #include "Arrival.h"
-#include "Wander.h";
+#include "Wander.h"
+#include "Pursuit.h"
 
 static int sceneIdx = -1;
 #define CL(__className__) [](){ return __className__::create();}
@@ -21,6 +22,7 @@ static std::function<Layer*()> createFunctions[] =
     CL(Flee),
     CL(Arrival),
     CL(Wander),
+    CL(Pursuit),
 
 };
 #define MAX_LAYER    (sizeof(createFunctions) / sizeof(createFunctions[0]))
@@ -68,7 +70,7 @@ bool TestBaseLayer::init()
     Text_title = static_cast<Text*>(rootNode->getChildByName("Text_title"));
     
     Sprite_character = static_cast<Sprite*>(rootNode->getChildByName("Sprite_character"));
-    
+    Sprite_character2 = static_cast<Sprite*>(rootNode->getChildByName("Sprite_character2"));
     addChild(rootNode);
     auto listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);

@@ -56,6 +56,7 @@
 		B9CE6F221AFDE49600B63911 /* ExMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F201AFDE49600B63911 /* ExMath.cpp */; };
 		B9CE6F251AFDE9C800B63911 /* Arrival.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F231AFDE9C800B63911 /* Arrival.cpp */; };
 		B9CE6F281AFFBE6900B63911 /* Wander.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F261AFFBE6900B63911 /* Wander.cpp */; };
+		B9CE6F2B1B00475300B63911 /* Pursuit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F291B00475300B63911 /* Pursuit.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -122,6 +123,8 @@
 		B9CE6F241AFDE9C800B63911 /* Arrival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrival.h; sourceTree = "<group>"; };
 		B9CE6F261AFFBE6900B63911 /* Wander.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wander.cpp; sourceTree = "<group>"; };
 		B9CE6F271AFFBE6900B63911 /* Wander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wander.h; sourceTree = "<group>"; };
+		B9CE6F291B00475300B63911 /* Pursuit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pursuit.cpp; sourceTree = "<group>"; };
+		B9CE6F2A1B00475300B63911 /* Pursuit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pursuit.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -263,6 +266,8 @@
 				B9CE6F241AFDE9C800B63911 /* Arrival.h */,
 				B9CE6F261AFFBE6900B63911 /* Wander.cpp */,
 				B9CE6F271AFFBE6900B63911 /* Wander.h */,
+				B9CE6F291B00475300B63911 /* Pursuit.cpp */,
+				B9CE6F2A1B00475300B63911 /* Pursuit.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -454,6 +459,7 @@
 				B9CE6F251AFDE9C800B63911 /* Arrival.cpp in Sources */,
 				B9CE6F1C1AFDB25700B63911 /* Seek.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				B9CE6F2B1B00475300B63911 /* Pursuit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
