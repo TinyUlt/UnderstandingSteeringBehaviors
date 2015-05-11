@@ -91,6 +91,15 @@ void TestBaseLayer::update(float dt)
 {
     
 }
+Vec2 TestBaseLayer::getBehaviorsPosition(Vec2 characterPosition,Vec2& characterVelocity, Vec2 steering, float max_speed)
+{
+    float mass = 50;//质量越大,转向越慢
+    
+    steering = steering / mass;//附加物体质量
+    characterVelocity = truncate(characterVelocity + steering, max_speed) ;//实际速度 = 当前速度+转向速度 ( 保证最大速度 )
+    return  characterPosition + characterVelocity;
+
+}
 void TestBaseLayer::Button_pre_Event(Ref *pSender, Widget::TouchEventType type)
 {
     if (type == Widget::TouchEventType::ENDED) {

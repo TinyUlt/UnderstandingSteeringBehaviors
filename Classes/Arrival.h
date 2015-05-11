@@ -28,7 +28,8 @@ public:
     virtual void setTitle();
     
     void update(float dt);
-    static Vec2 getSeekPosition(Vec2 characterPosition,Vec2 targetPosition, Vec2& characterVelocity);
+    static Vec2 getArrivalSteering(Vec2 characterPosition,Vec2 targetPosition, Vec2& characterVelocity, float &max_speed);
+    static Vec2 getArrivalPosition(Vec2 characterPosition,Vec2 targetPosition, Vec2& characterVelocity);
     
     Vec2 velocity;
     Vec2 m_touchPosition;

@@ -27,7 +27,7 @@ public:
     virtual void setTitle();
     
     void update(float dt);
-    Vec2 getSeekPosition(Vec2 position,Vec2 targetPosition, Vec2& targetVelocity);
+    Vec2 getEvadingPosition(Vec2 position,Vec2 targetPosition, Vec2& targetVelocity);
     Vec2 velocity;
     Vec2 velocity2;
     Vec2 m_touchPosition;

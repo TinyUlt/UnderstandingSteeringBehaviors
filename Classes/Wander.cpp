@@ -23,10 +23,9 @@ bool Wander::init()
 }
 void Wander::update(float dt)
 {
-    Sprite_character->setPosition(getSeekPosition(Sprite_character->getPosition(), m_touchPosition, velocity, wanderForce));
+    Sprite_character->setPosition(getWanderPosition(Sprite_character->getPosition(), m_touchPosition, velocity, wanderForce));
 }
-
-Vec2 Wander::getSeekPosition(Vec2 characterPosition, Vec2 targetPosition,Vec2& characterVelocity, Vec2& wanderForce)
+Vec2 Wander::getWanderSteering(Vec2 characterPosition,Vec2 targetPosition, Vec2& characterVelocity, Vec2& wanderForce)
 {
     static int _timeOffset = 0;
     _timeOffset ++;
@@ -49,14 +48,14 @@ Vec2 Wander::getSeekPosition(Vec2 characterPosition, Vec2 targetPosition,Vec2& c
         wanderForce = circleCenter + displacement; //获得偏移向量
     }
     
+    return wanderForce;
+
+}
+Vec2 Wander::getWanderPosition(Vec2 characterPosition, Vec2 targetPosition,Vec2& characterVelocity, Vec2& wanderForce)
+{
+    auto steering = getWanderSteering( characterPosition, targetPosition,  characterVelocity,  wanderForce);
     
-    float mass = 50;//质量越大,转向越慢
-    float max_speed = 5;//最大的实际速度
-    
-    auto steering = wanderForce;//desired_velocity - velocity;//计算转向速度
-    steering = steering / mass;//附加物体质量
-    characterVelocity = truncate(characterVelocity + steering, max_speed) ;//实际速度 = 当前速度+转向速度 ( 保证最大速度 )
-    characterPosition = characterPosition + characterVelocity;
+    characterPosition = getBehaviorsPosition(characterPosition, characterVelocity, steering);
     
     return characterPosition;
 }

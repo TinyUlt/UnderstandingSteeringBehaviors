@@ -42,7 +42,7 @@ public:
     virtual void onTouchEnded(Touch* touch, Event* event);
     
     virtual void update(float dt);
-    
+    static Vec2 getBehaviorsPosition(Vec2 characterPosition,Vec2& characterVelocity, Vec2 steering, float max_speed = 10);
     Text*  Text_title;
     Sprite* Sprite_character;
     Sprite* Sprite_character2;

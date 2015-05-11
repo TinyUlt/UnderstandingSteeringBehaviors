@@ -22,11 +22,11 @@ bool Pursuit::init()
 void Pursuit::update(float dt)
 {
     Sprite_character->setPosition(Seek::getSeekPosition(Sprite_character->getPosition(),m_touchPosition, velocity));
-    Sprite_character2->setPosition(getSeekPosition(Sprite_character2->getPosition(),Sprite_character->getPosition(), velocity));
+    Sprite_character2->setPosition(getPursuitPosition(Sprite_character2->getPosition(),Sprite_character->getPosition(), velocity));
 }
 
 
-Vec2 Pursuit::getSeekPosition(Vec2 characterPosition,Vec2 targetPosition, Vec2& targetVelocity)
+Vec2 Pursuit::getPursuitPosition(Vec2 characterPosition,Vec2 targetPosition, Vec2& targetVelocity)
 {
     auto MAX_VELOCITY = 2;
     auto distance = (targetPosition - characterPosition).length();

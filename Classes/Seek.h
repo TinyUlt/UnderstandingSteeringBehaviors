@@ -28,6 +28,7 @@ public:
     virtual void setTitle();
     
     void update(float dt);
+    static Vec2 getSeekSteering(Vec2 characterPosition,Vec2 targetPosition, Vec2& characterVelocity);
     static Vec2 getSeekPosition(Vec2 characterPosition,Vec2 targetPosition, Vec2& characterVelocity);
     
     Vec2 velocity;
