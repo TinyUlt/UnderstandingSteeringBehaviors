@@ -8,22 +8,24 @@
 
 #include "TestBaseLayer.h"
 
-#include "Seek.h"
-#include "Flee.h"
-#include "Arrival.h"
-#include "Wander.h"
-#include "Pursuit.h"
-#include "Evading.h"
+//#include "Flee.h"
+//#include "Arrival.h"
+//#include "Wander.h"
+//#include "Pursuit.h"
+//#include "Evading.h"
+//#include "Movement_Manager.h"
+
 static int sceneIdx = -1;
 #define CL(__className__) [](){ return __className__::create();}
 static std::function<Layer*()> createFunctions[] =
 {
-    CL(Seek),
-    CL(Flee),
-    CL(Arrival),
-    CL(Wander),
-    CL(Pursuit),
-    CL(Evading),
+    CL(SeekLayer),
+    CL(FleeLayer),
+    CL(ArrivalLayer),
+    CL(WanderLayer),
+    CL(PursuitLayer),
+    CL(EvadingLayer),
+    CL(Movement_ManagerLayer),
 
 };
 #define MAX_LAYER    (sizeof(createFunctions) / sizeof(createFunctions[0]))
@@ -38,7 +40,7 @@ Scene* TestBaseLayer::createScene()
     auto scene = Scene::create();
     
     // 'layer' is an autorelease object
-    auto layer = Seek::create();
+    auto layer = SeekLayer::create();
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -47,6 +49,22 @@ Scene* TestBaseLayer::createScene()
     return scene;
 }
 // on "init" you need to initialize your instance
+TestBaseLayer::TestBaseLayer():behaviors(NULL),behaviors2(NULL)
+{
+    
+}
+TestBaseLayer::~TestBaseLayer()
+{
+    if (behaviors)
+    {
+        delete behaviors;
+    }
+    if (behaviors2)
+    {
+        delete behaviors2;
+    }
+    
+}
 bool TestBaseLayer::init()
 {
     //////////////////////////////
@@ -55,7 +73,7 @@ bool TestBaseLayer::init()
     {
         return false;
     }
-    
+
     auto rootNode = CSLoader::createNode("MainScene.csb");
     auto Panel_conttrol = static_cast<cocos2d::ui::Layout*>(rootNode->getChildByName("Panel_conttrol"));
     
@@ -85,21 +103,16 @@ bool TestBaseLayer::init()
     
     this->scheduleUpdate();
     
+    
+   
+    
     return true;
 }
 void TestBaseLayer::update(float dt)
 {
     
 }
-Vec2 TestBaseLayer::getBehaviorsPosition(Vec2 characterPosition,Vec2& characterVelocity, Vec2 steering, float max_speed)
-{
-    float mass = 50;//质量越大,转向越慢
-    
-    steering = steering / mass;//附加物体质量
-    characterVelocity = truncate(characterVelocity + steering, max_speed) ;//实际速度 = 当前速度+转向速度 ( 保证最大速度 )
-    return  characterPosition + characterVelocity;
 
-}
 void TestBaseLayer::Button_pre_Event(Ref *pSender, Widget::TouchEventType type)
 {
     if (type == Widget::TouchEventType::ENDED) {
@@ -121,11 +134,12 @@ void TestBaseLayer::Button_restart_Event(Ref *pSender, Widget::TouchEventType ty
 
 bool TestBaseLayer::onTouchBegan(Touch* touch, Event* event)
 {
+    m_touchPosition = touch->getLocation();
     return true;
 }
 void TestBaseLayer::onTouchMoved(Touch* touch, Event* event)
 {
-    
+    m_touchPosition = touch->getLocation();
 }
 void TestBaseLayer::onTouchEnded(Touch* touch, Event* event)
 {
@@ -164,4 +178,192 @@ void replaceSceneCallback()
     Layer* layer = (createFunctions[sceneIdx])();
     scene->addChild(layer);
     Director::getInstance()->replaceScene(scene);
+}
+
+
+
+
+///////////////////////
+//SeekLayer
+bool SeekLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Seek;
+    behaviors->setCharacter(Sprite_character);
+    return true;
+}
+void SeekLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void SeekLayer::setTitle()
+{
+    Text_title->setString("SeekLayer");
+}
+//////////////////////
+//FleeLayer
+bool FleeLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Flee;
+    behaviors->setCharacter(Sprite_character);
+    return true;
+}
+void FleeLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void FleeLayer::setTitle()
+{
+    Text_title->setString("FleeLayer");
+}
+//////////////////////
+//ArrivalLayer
+bool ArrivalLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Arrival;
+    behaviors->setCharacter(Sprite_character);
+    return true;
+}
+void ArrivalLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void ArrivalLayer::setTitle()
+{
+    Text_title->setString("ArrivalLayer");
+}
+//////////////////////
+//WanderLayer
+bool WanderLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Wander;
+    behaviors->setCharacter(Sprite_character);
+    return true;
+}
+void WanderLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void WanderLayer::setTitle()
+{
+    Text_title->setString("WanderLayer");
+}
+//////////////////////
+//PursuitLayer
+bool PursuitLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Seek;
+    behaviors->setCharacter(Sprite_character);
+    
+    behaviors2 = new Pursuit(behaviors);
+    behaviors2->setCharacter(Sprite_character2);
+    return true;
+}
+void PursuitLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void PursuitLayer::setTitle()
+{
+    Text_title->setString("PursuitLayer");
+}
+//////////////////////
+//EvadingLayer
+bool EvadingLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Seek;
+    behaviors->setCharacter(Sprite_character);
+    
+    behaviors2 = new Evading(behaviors);
+    behaviors2->setCharacter(Sprite_character2);
+    Sprite_character2->setPosition(Vec2(500,400));
+    return true;
+}
+void EvadingLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+    
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void EvadingLayer::setTitle()
+{
+    Text_title->setString("EvadingLayer");
+}
+//////////////////////
+//ArrivalLayer
+bool Movement_ManagerLayer::init()
+{
+    // 1. super init first
+    if ( !TestBaseLayer::init() )
+    {
+        return false;
+    }
+    
+    behaviors = new Movement_Manager;
+    behaviors->setCharacter(Sprite_character);
+    return true;
+}
+void Movement_ManagerLayer::update(float dt)
+{
+    behaviors->setTargetPosition(m_touchPosition);
+    SteeringManager::getManager()->update(dt);
+}
+
+
+void Movement_ManagerLayer::setTitle()
+{
+    Text_title->setString("Movement_ManagerLayer");
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SteeringManager::update(float):SteeringManager.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "steeringArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Seek::getSeekPosition():Seek.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "character-&gt;getPosition()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

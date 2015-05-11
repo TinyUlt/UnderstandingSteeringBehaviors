@@ -58,6 +58,9 @@
 		B9CE6F281AFFBE6900B63911 /* Wander.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F261AFFBE6900B63911 /* Wander.cpp */; };
 		B9CE6F2B1B00475300B63911 /* Pursuit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F291B00475300B63911 /* Pursuit.cpp */; };
 		B9CE6F2E1B00534400B63911 /* Evading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F2C1B00534400B63911 /* Evading.cpp */; };
+		B9CE6F311B00785F00B63911 /* Movement_Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F2F1B00785F00B63911 /* Movement_Manager.cpp */; };
+		B9CE6F341B00863F00B63911 /* SteeringBehaviors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F321B00863F00B63911 /* SteeringBehaviors.cpp */; };
+		B9CE6F371B00956800B63911 /* SteeringManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9CE6F351B00956800B63911 /* SteeringManager.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -128,6 +131,12 @@
 		B9CE6F2A1B00475300B63911 /* Pursuit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pursuit.h; sourceTree = "<group>"; };
 		B9CE6F2C1B00534400B63911 /* Evading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Evading.cpp; sourceTree = "<group>"; };
 		B9CE6F2D1B00534400B63911 /* Evading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evading.h; sourceTree = "<group>"; };
+		B9CE6F2F1B00785F00B63911 /* Movement_Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Movement_Manager.cpp; sourceTree = "<group>"; };
+		B9CE6F301B00785F00B63911 /* Movement_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movement_Manager.h; sourceTree = "<group>"; };
+		B9CE6F321B00863F00B63911 /* SteeringBehaviors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SteeringBehaviors.cpp; sourceTree = "<group>"; };
+		B9CE6F331B00863F00B63911 /* SteeringBehaviors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteeringBehaviors.h; sourceTree = "<group>"; };
+		B9CE6F351B00956800B63911 /* SteeringManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SteeringManager.cpp; sourceTree = "<group>"; };
+		B9CE6F361B00956800B63911 /* SteeringManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteeringManager.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -261,6 +270,10 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				B9CE6F171AFDB1B400B63911 /* TestBaseLayer.cpp */,
 				B9CE6F181AFDB1B400B63911 /* TestBaseLayer.h */,
+				B9CE6F351B00956800B63911 /* SteeringManager.cpp */,
+				B9CE6F361B00956800B63911 /* SteeringManager.h */,
+				B9CE6F321B00863F00B63911 /* SteeringBehaviors.cpp */,
+				B9CE6F331B00863F00B63911 /* SteeringBehaviors.h */,
 				B9CE6F1A1AFDB25700B63911 /* Seek.cpp */,
 				B9CE6F1B1AFDB25700B63911 /* Seek.h */,
 				B9CE6F1D1AFDDA5600B63911 /* Flee.cpp */,
@@ -273,6 +286,8 @@
 				B9CE6F2A1B00475300B63911 /* Pursuit.h */,
 				B9CE6F2C1B00534400B63911 /* Evading.cpp */,
 				B9CE6F2D1B00534400B63911 /* Evading.h */,
+				B9CE6F2F1B00785F00B63911 /* Movement_Manager.cpp */,
+				B9CE6F301B00785F00B63911 /* Movement_Manager.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -460,11 +475,14 @@
 				B9CE6F281AFFBE6900B63911 /* Wander.cpp in Sources */,
 				B9CE6F221AFDE49600B63911 /* ExMath.cpp in Sources */,
 				B9CE6F1F1AFDDA5600B63911 /* Flee.cpp in Sources */,
+				B9CE6F311B00785F00B63911 /* Movement_Manager.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				B9CE6F191AFDB1B400B63911 /* TestBaseLayer.cpp in Sources */,
 				B9CE6F251AFDE9C800B63911 /* Arrival.cpp in Sources */,
+				B9CE6F371B00956800B63911 /* SteeringManager.cpp in Sources */,
 				B9CE6F1C1AFDB25700B63911 /* Seek.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				B9CE6F341B00863F00B63911 /* SteeringBehaviors.cpp in Sources */,
 				B9CE6F2B1B00475300B63911 /* Pursuit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

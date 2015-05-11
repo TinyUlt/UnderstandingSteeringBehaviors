@@ -9,7 +9,6 @@
 #include "ExMath.h"
 Vec2 truncate(Vec2 v, float max)
 {
-    log("%f", v.length());
     auto i = max / v.length();
     i = i < 1.0 ? i : 1.0;
     v.scale(i);
