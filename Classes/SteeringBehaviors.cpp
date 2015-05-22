@@ -50,9 +50,10 @@ Vec2 SteeringBehaviors::getBehaviorsPosition()
     return  character->getPosition() + velocity;
 }
 
-void SteeringBehaviors::start()
+void SteeringBehaviors::start(Vec2 velocity)
 {
     isStarting = true;
+    this->velocity = velocity;
 }
 void SteeringBehaviors::stop()
 {

@@ -27,7 +27,7 @@ public:
     virtual void setCharacter(Node* character, bool start = true);
     virtual void setTargetPosition(Vec2 position);
     Vec2 getBehaviorsPosition();
-    void start();
+    void start(Vec2 velocity);
     void stop();
 
     

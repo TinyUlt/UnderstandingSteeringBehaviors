@@ -45,15 +45,17 @@ Vec2 Movement_Manager::getSeekPosition()
     Vec2 v(0,0);
     if (distance > slowingRadius)
     {
-        wanderBehaviors->start();
+        wanderBehaviors->start(velocity);
         seekBehaviors->stop();
         v = wanderBehaviors->getSeekPosition();
+        velocity = wanderBehaviors->velocity;
     }
     else
     {
         wanderBehaviors->stop();
-        seekBehaviors->start();
+        seekBehaviors->start(velocity);
         v = seekBehaviors->getSeekPosition();
+        velocity = seekBehaviors->velocity;
     }
     
     return  v;
